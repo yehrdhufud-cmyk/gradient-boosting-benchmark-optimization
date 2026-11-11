@@ -1,0 +1,103 @@
+{
+    "project": "Advanced Boosting Benchmark & Optuna Optimization",
+    "random_state": 42,
+    "samples": 1200,
+    "features": [
+        "Area_SQM",
+        "Bedrooms",
+        "Bathrooms",
+        "Property_Age",
+        "Distance_To_Center",
+        "Transit_Access",
+        "School_Rating",
+        "Crime_Rate",
+        "Neighborhood_Income",
+        "Floor_Number",
+        "Parking_Spaces"
+    ],
+    "targets": [
+        "Sale_Price",
+        "Monthly_Rent",
+        "Price_Per_SQM"
+    ],
+    "test_size": 0.2,
+    "cv_folds": 3,
+    "optuna_trials_per_model": 15,
+    "best_model": "CatBoost",
+    "best_model_test_r2": 0.9774644865909505,
+    "best_parameters": {
+        "HGB": {
+            "max_iter": 433,
+            "learning_rate": 0.07838052289786077,
+            "max_leaf_nodes": 22,
+            "l2_regularization": 0.733267505296751,
+            "min_samples_leaf": 28
+        },
+        "XGBoost": {
+            "n_estimators": 510,
+            "max_depth": 3,
+            "learning_rate": 0.04957582163614323,
+            "subsample": 0.6797083549266096,
+            "colsample_bytree": 0.6536394226863929,
+            "min_child_weight": 9,
+            "reg_lambda": 0.8238470044740046
+        },
+        "LightGBM": {
+            "n_estimators": 493,
+            "max_depth": 3,
+            "num_leaves": 45,
+            "learning_rate": 0.0952437206433231,
+            "subsample": 0.6950443652546028,
+            "colsample_bytree": 0.6503997988745424,
+            "reg_lambda": 0.11186205139971585
+        },
+        "CatBoost": {
+            "iterations": 550,
+            "depth": 4,
+            "learning_rate": 0.07051497737676618,
+            "l2_leaf_reg": 1.5940597524709736
+        }
+    },
+    "model_results": [
+        {
+            "Model": "CatBoost",
+            "CV_R2": 0.9760180578587851,
+            "Train_R2": 0.9950956396163665,
+            "Test_R2": 0.9774644865909505,
+            "MAE": 10255.426528389115,
+            "MSE": 528130468.03612286,
+            "RMSE": 22981.08935703708,
+            "Overfitting_Gap": 0.017631153025415958
+        },
+        {
+            "Model": "XGBoost",
+            "CV_R2": 0.9709131121635437,
+            "Train_R2": 0.9935203194618225,
+            "Test_R2": 0.9722234606742859,
+            "MAE": 11722.44655103328,
+            "MSE": 691882879.4662808,
+            "RMSE": 26303.666654409244,
+            "Overfitting_Gap": 0.02129685878753662
+        },
+        {
+            "Model": "LightGBM",
+            "CV_R2": 0.9667481461811039,
+            "Train_R2": 0.9950501120947063,
+            "Test_R2": 0.9711783358726706,
+            "MAE": 12222.551591557125,
+            "MSE": 752500359.4907845,
+            "RMSE": 27431.74000115167,
+            "Overfitting_Gap": 0.023871776222035734
+        },
+        {
+            "Model": "HGB",
+            "CV_R2": 0.9602485210071373,
+            "Train_R2": 0.9996394821683944,
+            "Test_R2": 0.9613857392463624,
+            "MAE": 13509.157219185685,
+            "MSE": 953872390.4204654,
+            "RMSE": 30884.824597534393,
+            "Overfitting_Gap": 0.038253742922031986
+        }
+    ]
+}
